@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+import Card from './Card';
+
 const Tab = styled.button`
   font-size: 20px;
   padding: 10px 60px;
@@ -55,7 +57,7 @@ function TabGroup() {
       </ButtonGroup>
 
       <p />
-      <p> Your payment selection: {active} </p>
+      <Card />
     </>
   );
 }

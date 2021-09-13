@@ -19,6 +19,7 @@ const Form = styled.div`
   background: rgb(238,238,238);
   padding: 30px 40px;
   border-radius: 25px;
+  margin-left: 20%;
 
   h1 {
     color: #FFA800;
