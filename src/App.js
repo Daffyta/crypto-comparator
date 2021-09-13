@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import './scss/App.css';
+
+import Registry from './components/registry'
+import Dashboard from './pages/Dashboard'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import axios from "axios";
 
 function App() {
+
+  const mxnUsd = sessionStorage.getItem('mxn_usd');
+  if (mxnUsd === null) {
+    axios.get(process.env.REACT_APP_API_MXN_USD)
+      .then((response) => {
+        sessionStorage.setItem('mxn_usd', response.data.USD_MXN);
+      });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact={true}>
+            <Registry />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
