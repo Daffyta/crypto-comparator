@@ -20,8 +20,7 @@ const  Row= styled.div`
 
 const  CryptoComparator= styled.div`
   display: grid;
-  justify-content: center;
-  text-align: center;
+
 `;
 
 
