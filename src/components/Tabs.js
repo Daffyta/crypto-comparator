@@ -24,6 +24,11 @@ const ButtonGroup = styled.div`
   display: flex;
 `;
 
+const TabCards = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`;
+
 const types = ['BTC', 'ETH', 'XRP'];
 
 function TabGroup() {
@@ -35,7 +40,7 @@ function TabGroup() {
     const requestTime = setTimeout(() => {
       axios.get(process.env.REACT_APP_API_HISTORYCAL)
         .then((response) => {
-          setComparator(comparator => [...comparator, response.data]);
+          setComparator(comparator => [...comparator, console.log(response.data)]);
           setDelay(15000);
         });
     }, delay);
@@ -57,7 +62,10 @@ function TabGroup() {
       </ButtonGroup>
 
       <p />
-      <Card />
+      <TabCards>
+        <Card />
+        <Card />
+      </TabCards>
     </>
   );
 }

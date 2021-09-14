@@ -1,56 +1,62 @@
 import React, { useState } from "react";
+import styled from 'styled-components';
 
-function Card(){
+const CryptoCard = styled.div`
+  width: 30%;
+  border: 1px solid #000;
+  margin-right: 10px;
+`;
+
+const CardTitle = styled.div`
+  text-align: center;
+  border-bottom: 1px solid #000;
+`;
+
+const  Row= styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+`;
+
+function Card(props){
   return(
-    <>
-      <div className="title-card">
-        <h3>
+    <CryptoCard>
+      <CardTitle className="title-card">
+        <h2>
           123,450
-        </h3>
-      </div>
-      <div className="subtitle-card">
-        <h3>
+        </h2>
+        <h4>
           Bitso
-        </h3>
-      </div>
+        </h4>
+      </CardTitle>
       <div className="history">
-        <div>
+        <Row>
           <span>fecha</span>
           <span>Hora</span>
           <span>Precio</span>
-        </div>
-        <div>
+        </Row>
+        <Row>
           <span>fecha</span>
           <span>Hora</span>
           <span>Precio</span>
-        </div>
-        <div>
+        </Row>
+        <Row>
           <span>fecha</span>
           <span>Hora</span>
           <span>Precio</span>
-        </div>
-        <div>
+        </Row>
+        <Row>
           <span>fecha</span>
           <span>Hora</span>
           <span>Precio</span>
-        </div>
-        <div>
+        </Row>
+        <Row>
           <span>fecha</span>
           <span>Hora</span>
           <span>Precio</span>
-        </div>
-        <div>
-          <span>fecha</span>
-          <span>Hora</span>
-          <span>Precio</span>
-        </div>
-        <div>
-          <span>fecha</span>
-          <span>Hora</span>
-          <span>Precio</span>
-        </div>
-      </div>
-    </>
+        </Row>
+      </div> 
+    </CryptoCard>
   );
 }
 

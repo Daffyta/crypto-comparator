@@ -6,21 +6,39 @@ import styled from "styled-components";
 
 const  Container= styled.div`
   display: grid;
-  margin: 20px 50px;
 
-  h2 {
+  h1 {
     text-align: center;
+    font-size: 40px;
+    color: #ffa800;
+    background-color: rgb(238,238,238);
+    padding: 20px;
+    margin: 0;
   }
 `;
 
 const  Row= styled.div`
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: repeat(2, 25% 75%);
+  grid-gap: 30px;
 `;
+
+const  SlidebarDataConvert= styled.div`
+  background-color: rgb(238,238,238);
+  padding: 20px 60px;
+`;
+
 
 const  CryptoComparator= styled.div`
   display: grid;
+  padding: 30px;
+`;
 
+const  DataRegistrer= styled.div`
+  margin-bottom: 60px;
+  li {
+    margin-bottom: 10px;
+  }
 `;
 
 
@@ -32,26 +50,28 @@ function Dashboard(props) {
   return(
     <>
       <Container>
-        <h2>
+        <h1>
           Hello {registryForm.firstName} {registryForm.lastName}!
-        </h2>
+        </h1>
         <Row>
-          <div>
-            <h3>
-            Your registration data are:
-            </h3>
-            <ul>
-              <li>
-                Email: {registryForm.email}
-              </li>
-              <li>
-                Phone number: {registryForm.phoneNumber}
-              </li>
-            </ul>
-          </div>
+          <SlidebarDataConvert>
+            <DataRegistrer>
+              <h3>
+              Your registration data are:
+              </h3>
+              <ul>
+                <li>
+                  <b>Email:</b> {registryForm.email}
+                </li>
+                <li>
+                  <b>Phone number:</b> {registryForm.phoneNumber}
+                </li>
+              </ul>
+            </DataRegistrer>
+            <Convert />
+          </SlidebarDataConvert>
           <CryptoComparator>
             <Tabs />
-            <Convert />
           </CryptoComparator>
         </Row>
       </Container>
