@@ -10,7 +10,6 @@ function TabGroup() {
   const [comparator, setComparator] = useState([]);
   const [delay, setDelay] = useState(1);
   const [active, setActive] = useState(types[0]);
-  console.log(active)
 
   useEffect(() => {
     const requestTime = setTimeout(() => {
