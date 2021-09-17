@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 import Card from './Card';
 
-const types = ['btc', 'eth', 'xrp'];
+const types = ['BTC', 'ETH', 'XRP'];
 
 function TabGroup() {
   const [comparator, setComparator] = useState([]);
   const [delay, setDelay] = useState(1);
   const [active, setActive] = useState(types[0]);
+  console.log(active)
 
   useEffect(() => {
     const requestTime = setTimeout(() => {
@@ -39,7 +40,7 @@ function TabGroup() {
       <p />
 
       <TabCards>
-        <Card active={active} data={comparator}/>
+        <Card active={active.toLowerCase()} data={comparator}/>
       </TabCards>
     </>
   );

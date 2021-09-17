@@ -1,8 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
 
-
-
 function Card(props){
   const infoData = props.data.reverse().slice(0,6);
   const activeCrypto = props.active;
@@ -42,7 +40,6 @@ const CryptoCard = styled.div`
   width: 30%;
   margin-right: 10px;
   border: 1px solid #ddd;
-  border-radius: 20px;
 
   .history {
     div:nth-child(2n) {

@@ -12,14 +12,14 @@ function Dashboard(props) {
   return(
     <>
       <Container>
-        <h1>
-          Hello {registryForm.firstName} {registryForm.lastName}!
-        </h1>
         <Row>
           <SlidebarDataConvert>
             <DataRegistrer>
+              <h1>
+                Hello {registryForm.firstName} {registryForm.lastName}!
+              </h1>
               <h3>
-              Your registration data are:
+              Your registration data is:
               </h3>
               <ul>
                 <li>
@@ -50,7 +50,6 @@ const  Container= styled.div`
   display: grid;
 
   h1 {
-    text-align: center;
     font-size: 40px;
     color: #ffa800;
     background-color: #141925;
@@ -63,7 +62,7 @@ const  Row= styled.div`
   display: grid;
   grid-template-columns: repeat(2, 25% 75%);
   grid-gap: 30px;
-  height: 85vh;
+  height: 100vh;
 `;
 
 const  SlidebarDataConvert= styled.div`
