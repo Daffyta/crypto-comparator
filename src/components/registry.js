@@ -4,83 +4,6 @@ import styled from "styled-components";
 
 import moneyCrypto from '../assets/img/fondo.png';
 
-const Login = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
-  justify-items:center;
-  align-items: center;
-  background-color: #141925;
-  height: 100vh;
-`;
-
-const Form = styled.div`
-  display: grid;
-  align-content: space-between;
-  background: rgb(238,238,238);
-  padding: 30px 40px;
-  border-radius: 25px;
-  margin-left: 20%;
-
-  h1 {
-    color: #FFA800;
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-
-  h3 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-`;
-
-const FormControl = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-
-  label {
-    font-size: 12px;
-  }
-
-  input {
-    padding: 6px;
-    font-size: 16px;
-    margin: 8px 0px;
-    border: 1px solid #00000040;
-    border-radius: 5px;
-  }
-`;
-
-const ConsecutiveInputs = styled.div`
-  display: flex;
-`;
-
-const Button = styled.div`
-  margin: 30px 0;
-  padding: 10px;
-  background-color: #ffa800;
-  border: 1px;
-  border-radius: 8px;
-  text-align: center;
-  &:hover {
-    box-shadow: rgba(0,0,0,0.2) 6px 10px 8px;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-  }
-`;
-
-const Image = styled.div`
-  img {
-    width: 100%;
-  }
-`;
-
 function RegistrationForm() {
   const [state , setState] = useState({
     firstName: "",
@@ -162,12 +85,92 @@ function RegistrationForm() {
             </Link>
           </Button>
         </Form>
-        <Image>
-          <img src={moneyCrypto} alt="this is crypto image" />
-        </Image>
+        <CryptoImage>
+          <img src={moneyCrypto} alt="this is crypto" />
+        </CryptoImage>
       </Login>
     </>
   );
 }
 
 export default RegistrationForm;
+
+
+// Styles componets registry
+
+const Login = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items:center;
+  align-items: center;
+  background-color: #141925;
+  height: 100vh;
+`;
+
+const Form = styled.div`
+  display: grid;
+  align-content: space-between;
+  background: rgb(238,238,238);
+  padding: 30px 40px;
+  border-radius: 25px;
+  margin-left: 20%;
+
+  h1 {
+    color: #FFA800;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+`;
+
+const FormControl = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    padding: 6px;
+    font-size: 16px;
+    margin: 8px 0px;
+    border: 1px solid #00000040;
+    border-radius: 5px;
+  }
+`;
+
+const ConsecutiveInputs = styled.div`
+  display: flex;
+`;
+
+const Button = styled.div`
+  margin: 30px 0;
+  padding: 10px;
+  background-color: #ffa800;
+  border: 1px;
+  border-radius: 8px;
+  text-align: center;
+  &:hover {
+    box-shadow: rgba(0,0,0,0.2) 6px 10px 8px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+  }
+`;
+
+const CryptoImage = styled.div`
+  img {
+    width: 100%;
+  }
+`;
