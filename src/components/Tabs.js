@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Card from './Card';
+import Convert from './Convert';
 
 const types = ['BTC', 'ETH', 'XRP'];
 
@@ -41,6 +42,8 @@ function TabGroup() {
       <TabCards>
         <Card active={active.toLowerCase()} data={comparator}/>
       </TabCards>
+
+      <Convert comparator={comparator}/>
     </>
   );
 }

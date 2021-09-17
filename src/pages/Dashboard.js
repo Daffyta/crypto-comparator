@@ -1,6 +1,5 @@
 import React from "react";
 import Tabs from '../components/Tabs'
-import Convert from "../components/Convert";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
@@ -29,8 +28,7 @@ function Dashboard(props) {
                   <b>Phone number:</b> <br/> <p>{registryForm.phoneNumber}</p>
                 </li>
               </ul>
-            </DataRegistrer>
-            <Convert />
+            </DataRegistrer>   
           </SlidebarDataConvert>
           <CryptoComparator>
             <Tabs />
@@ -73,7 +71,7 @@ const  SlidebarDataConvert= styled.div`
 
 
 const  CryptoComparator= styled.div`
-  padding: 30px;
+  margin-top: 20px;
 `;
 
 const  DataRegistrer= styled.div`

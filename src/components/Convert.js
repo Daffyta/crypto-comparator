@@ -1,49 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 
-function Convert() {
+function Convert(props) {
 
   let currentMxnUsd = sessionStorage.getItem('mxn_usd');
+  const {comparator} = props;
+  const [mxnPrice, setMxnPrice] = useState(0);
+  const [btcPrice, setBtcPrice] = useState(1);
+  const [ethPrice, setEthPrice] = useState(1);
+  const [xrpPrice, setXrpPrice] = useState(1);
 
-  const [state , setState] = useState({
-    mxnUsd: "",
-  });
+  useEffect(() => {
+    const last = comparator.reverse();
+
+    if (last.length > 0) {
+      setBtcPrice(last[0][0].current_price);
+      setEthPrice(last[0][1].current_price);
+      setXrpPrice(last[0][2].current_price);
+    }
+  }, [comparator])
+  
 
   const convertMxnToUsd = (e) => {
-    setState(e.target.value)
+    setMxnPrice(e.target.value);
   };
 
   return(
-    <>
+    <LayoutConverter>
       <Subtitle>
         <h3>CONVERT</h3>
       </Subtitle>
-      <FormControl>
-        <label htmlFor="Coin">MXN</label>
-        <input
-          type="number"
-          id="Coin"
-          value={state.mxnUsd}
-          onChange={convertMxnToUsd}
-          name="mxnUsd"
-          aria-describedby="coinHelp"
-        />
-        <p>{ state.mxnUsd }</p>
-      </FormControl>
-      <ul>
-        <li>
-          BTC: 
-        </li>
-        <br />
-        <li>
-          ETH:
-        </li>
-        <br />
-        <li>
-          XRP:
-        </li>
-      </ul>
-    </>
+      <Row>
+        <FormControl>
+          <label htmlFor="Coin">MXN</label>
+          <input
+            type="number"
+            id="Coin"
+            value={mxnPrice}
+            onChange={convertMxnToUsd}
+            name="mxnUsd"
+            aria-describedby="coinHelp"
+          />
+        </FormControl>
+        <ul>
+          <li>
+            <b>BTC:</b> <br/> { (mxnPrice / currentMxnUsd) / btcPrice }
+          </li>
+          <br />
+          <li>
+            <b>ETH:</b> <br /> { (mxnPrice / currentMxnUsd) / ethPrice }
+          </li>
+          <br />
+          <li>
+            <b>XRP:</b> <br /> { (mxnPrice / currentMxnUsd) / xrpPrice }
+          </li>
+        </ul>
+      </Row>
+    </LayoutConverter>
   )
 }
 
@@ -53,13 +66,11 @@ export default Convert
 
 const  Subtitle = styled.div`
   h3 {
-    color: #ffa800;;
+    margin: 0px;
   }
 `;
 
 const FormControl = styled.div`
-  display: flex;
-  align-items: center;
   margin: 5px;
 
   label {
@@ -75,3 +86,21 @@ const FormControl = styled.div`
     border-radius: 5px;
   }
 `;
+
+const  Row= styled.div`
+  display: flex;
+  padding: 10px;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+`;
+
+const LayoutConverter= styled.div`
+  background-color: #80808085;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+`
